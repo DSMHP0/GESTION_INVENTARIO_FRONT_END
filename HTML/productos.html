@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventario - Productos</title>
+  <link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <h2 class="titulo">Inventario de Productos</h2>
+    <p>Bienvenido, <span id="nombre-usuario"></span></p>
+
+    <div id="tabla-productos">
+      <!-- Aquí aparecerá la tabla -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; Derechos reservados 2025</p>
+  </footer>
+
+  <!-- Verificación de sesión y mostrar nombre -->
+  <script>
+    const usuario = sessionStorage.getItem("usuarioActivo");
+    if (!usuario) {
+      alert("Debes iniciar sesión para acceder.");
+      window.location.href = "login.html";
+    } else {
+      const usuarioActivo = JSON.parse(usuario);
+      document.getElementById("nombre-usuario").textContent = usuarioActivo.nombre;
+    }
+  </script>
+
+  <!-- Lógica de productos -->
+  <script src="/JS/productos.js"></script>
+</body>
+</html>
