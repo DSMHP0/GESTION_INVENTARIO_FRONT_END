@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventario - Productos</title>
-  <link rel="stylesheet" href="/CSS/style.css">
+  <title>Inventario de Productos</title>
+  <link rel="stylesheet" href="/CSS/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,7 +14,7 @@
     <nav>
       <ul class="nav-menu">
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a class="active" href="productos.html">Productos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
@@ -24,8 +25,24 @@
     <h2 class="titulo">Inventario de Productos</h2>
     <p>Bienvenido, <span id="nombre-usuario"></span></p>
 
+    <!-- Botón Cerrar Sesión -->
+    <div style="text-align: right;">
+      <button id="cerrar-sesion" class="btn">Cerrar Sesión</button>
+    </div>
+
+    <!-- Botón Agregar Producto -->
+    <div style="text-align: right; margin-top: 10px;">
+      <a href="agregar.html" class="btn">+ Agregar Producto</a>
+    </div>
+
+    <!-- Buscador -->
+    <div style="margin: 20px auto; text-align: center;">
+      <input type="text" id="buscador" placeholder="Buscar producto..." style="padding: 8px; width: 50%;">
+    </div>
+
+    <!-- Tabla de productos -->
     <div id="tabla-productos">
-      <!-- Aquí aparecerá la tabla -->
+      <!-- Aquí se carga la tabla desde productos.js -->
     </div>
   </main>
 
@@ -34,7 +51,7 @@
     <p>&copy; Derechos reservados 2025</p>
   </footer>
 
-  <!-- Verificación de sesión y mostrar nombre -->
+  <!-- Verificar sesión y mostrar nombre -->
   <script>
     const usuario = sessionStorage.getItem("usuarioActivo");
     if (!usuario) {
@@ -43,6 +60,13 @@
     } else {
       const usuarioActivo = JSON.parse(usuario);
       document.getElementById("nombre-usuario").textContent = usuarioActivo.nombre;
+
+      // Lógica para cerrar sesión
+      const btnCerrar = document.getElementById("cerrar-sesion");
+      btnCerrar.addEventListener("click", () => {
+        sessionStorage.removeItem("usuarioActivo");
+        window.location.href = "login.html";
+      });
     }
   </script>
 

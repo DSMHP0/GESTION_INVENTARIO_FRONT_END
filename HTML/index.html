@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA DE GESTION DE INVENTARIO</title>
-    <link rel="shortcut icon" href="/ASSETS/imag/inventario (2).ico" type="image/x-icon">
-    <link rel="stylesheet" href="/CSS/style.css">   <!--StylesSheet referencia a hoja de estilo-->
-    <script src="/JS/main.js"></script>             <!--REFERENCIAR Y HACER EL LLAMADO DEL JAVA SCRIPT-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Gestión de Inventario</title>
+  <link rel="stylesheet" href="/CSS/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-menu">
-                <li><a class="active" href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-              </ul>
-        </nav>
-    </header>
-     <!-- Contenedor principal -->
-     <main class="container">
-        <h2 class="titulo">SISTEMA DE GESTIÓN DE INVENTARIOS</h2>
-        <p class="descripcion">Bienvenido al sistema. Aquí puedes gestionar los productos fácilmente.</p>
-    
-        <div class="botones">
-          <a href="login.html"><button class="btn">Iniciar Sesión</button></a>
-          <a href="registro.html"><button class="btn">Registrarse</button></a>
-        </div>
-      </main>
-    
-      <hr>
-    
-      <footer class="footer">
-        <p>&copy; DERECHOS RESERVADOS 2025</p>
-      </footer>
-    
-    </body>
-    </html>
+  
+  <body class="index"></body>
+  <!-- Barra de navegación -->
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a class="active" href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container index-banner">
+    <h2 class="titulo">Sistema de Gestión de Inventarios</h2>
+    <p class="descripcion">Bienvenido al sistema. Aquí puedes gestionar los productos fácilmente.</p>
+    <div class="botones">
+      <a href="login.html" class="btn">Iniciar Sesión</a>
+      <a href="registro.html" class="btn">Registrarse</a>
+    </div>
+  </main>
+
+  <section class="servicios">
+    <div class="card">
+      <img src="/ASSETS/imag/Carro.png" alt="Servicios">
+      <div class="card-text">SERVICIOS</div>
+    </div>
+    <div class="card">
+      <img src="/ASSETS/imag/Tablet.png" alt="Productos">
+      <div class="card-text">PRODUCTOS</div>
+    </div>
+    <div class="card">
+      <img src="/ASSETS/imag/Hora.png" alt="Contacto">
+      <div class="card-text">CONTACTO</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; Derechos reservados 2025</p>
+  </footer>
+
+
+</body>
+</html>

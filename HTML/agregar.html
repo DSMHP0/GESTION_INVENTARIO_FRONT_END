@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agregar Producto</title>
   <link rel="stylesheet" href="/CSS/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Barra de navegación -->
   <header>
     <nav>
       <ul class="nav-menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html">Productos</a></li>
-        <li><a href="agregar.html" class="active">Agregar</a></li>
+        <li><a class="active" href="agregar.html">Agregar</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Contenido principal -->
   <main class="container">
     <h2 class="titulo">Agregar Nuevo Producto</h2>
 
@@ -32,35 +35,12 @@
     <p><a href="productos.html">← Volver a Productos</a></p>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <p>&copy; Derechos reservados 2025</p>
   </footer>
 
-  <script>
-    // Lógica para guardar producto
-    document.addEventListener("DOMContentLoaded", () => {
-      const formProducto = document.querySelector("#form-producto");
-
-      if (formProducto) {
-        formProducto.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const nombre = formProducto.querySelector("input[placeholder='Nombre del producto']").value;
-          const categoria = formProducto.querySelector("input[placeholder='Categoría']").value;
-          const precio = parseFloat(formProducto.querySelector("input[placeholder='Precio']").value);
-          const cantidad = parseInt(formProducto.querySelector("input[placeholder='Cantidad']").value);
-
-          const producto = { nombre, categoria, precio, cantidad };
-
-          const productos = JSON.parse(localStorage.getItem("productos")) || [];
-          productos.push(producto);
-          localStorage.setItem("productos", JSON.stringify(productos));
-
-          alert("Producto guardado correctamente.");
-          window.location.href = "productos.html";
-        });
-      }
-    });
-  </script>
+  <!-- Script para guardar producto -->
+  <script src="/JS/productos.js"></script>
 </body>
 </html>

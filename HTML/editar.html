@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar Producto</title>
+  <link rel="stylesheet" href="/CSS/style.css" />
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    <h2 class="titulo">Editar Producto</h2>
+
+    <form id="form-editar" class="login-form">
+      <input type="text" placeholder="Nombre del producto" required />
+      <input type="text" placeholder="Categoría" required />
+      <input type="number" placeholder="Precio" min="0" required />
+      <input type="number" placeholder="Cantidad" min="1" required />
+      <button type="submit" class="btn">Guardar Cambios</button>
+    </form>
+
+    <p><a href="productos.html">← Volver a Productos</a></p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; Derechos reservados 2025</p>
+  </footer>
+
+  <!-- Lógica para editar producto -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const index = sessionStorage.getItem("editarProducto");
+      const productos = JSON.parse(localStorage.getItem("productos")) || [];
+      const producto = productos[index];
+
+      const form = document.getElementById("form-editar");
+      const [inputNombre, inputCategoria, inputPrecio, inputCantidad] = form.querySelectorAll("input");
+
+      // Precargar datos
+      inputNombre.value = producto.nombre;
+      inputCategoria.value = producto.categoria;
+      inputPrecio.value = producto.precio;
+      inputCantidad.value = producto.cantidad;
+
+      // Guardar cambios
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+
+        producto.nombre = inputNombre.value;
+        producto.categoria = inputCategoria.value;
+        producto.precio = parseFloat(inputPrecio.value);
+        producto.cantidad = parseInt(inputCantidad.value);
+
+        productos[index] = producto;
+        localStorage.setItem("productos", JSON.stringify(productos));
+
+        alert("Producto actualizado correctamente.");
+        window.location.href = "productos.html";
+      });
+    });
+  </script>
+</body>
+</html>
